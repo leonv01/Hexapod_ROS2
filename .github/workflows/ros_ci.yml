@@ -1,0 +1,40 @@
+name: ROS 2 CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        ros_distro: [humble]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ROS 2
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: ${{ matrix.ros_distro }}
+
+      - name: Install non-ROS dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libi2c-dev build-essential cmake git
+          cd /tmp
+          git clone https://github.com/barulicm/PiPCA9685.git
+          cd PiPCA9685
+          mkdir build && cd build
+          cmake ..
+          make
+          sudo make install
+
+      - name: Run ROS 2 CI
+        uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          package-name: hexapod_hal
+          target-ros2-distro: ${{ matrix.ros_distro }}

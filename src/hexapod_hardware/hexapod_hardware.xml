@@ -1,0 +1,10 @@
+<library path="hexapod_hardware">
+    <class 
+        name="hexapod_hardware/HexapodSystem"
+        type="hexapod_hardware::HexapodSystem"
+        base_class_type="hardware_interface::SystemInterface">
+        <description>
+            ROS 2 Control Hardware Interface for Hexapod using PCA9685 PWM controller.
+        </description>
+    </class>
+</library>

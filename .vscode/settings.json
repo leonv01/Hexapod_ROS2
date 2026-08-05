@@ -1,0 +1,23 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--path-mappings=/home/ws=${workspaceFolder}",
+        "--background-index",
+        "--header-insertion=never",
+        "-std=c++17"
+    ],
+    "clangd.fallbackFlags": [
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages"
+    ],
+    "ROS2.distro": "humble",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/src/**",
+        "/opt/ros/humble/include/**",
+        "/opt/ros/rolling/include/**",
+    ]
+}

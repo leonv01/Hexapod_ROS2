@@ -1,0 +1,39 @@
+# ROS 2 Colcon build directories
+build/
+install/
+log/
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# C / C++ build / object files
+*.o
+*.so
+*.a
+*.dylib
+*.out
+
+# VS Code user settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# OS & Editor temp files
+.cache/
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.bak
+
+# Temporary / scratch artifacts
+scratch/
+
+# Ignore proprietary robot description package (CAD files)
+src/hexapod_description/
